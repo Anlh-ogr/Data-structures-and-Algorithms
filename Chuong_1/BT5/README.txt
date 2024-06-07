@@ -42,3 +42,36 @@ xuất - bậc n, giá trị của hàm số tại x, tổng đa thức a[i] và
                                               + 5x^3 + 10x^4 + 15x^5 + 20x^6
 
                               = 2 + 7x + 19x^2 + 42x^3 + 33x^4 + 20x^5 + 20x^6
+
+
+
+review code:
+        Enter the first polynomial:
+Enter the degree of the polynomial: 3
+Enter the a0 coefficient: 2
+Enter the a1 coefficient: 3
+Enter the a2 coefficient: 4
+Enter the a3 coefficient: 5
+The polynomial is: 5x^3 + 4x^2 + 3x + 2
+
+        Enter the second polynomial: 
+Enter the degree of the polynomial: 4
+Enter the a0 coefficient: 7
+Enter the a1 coefficient: 6
+Enter the a2 coefficient: 5
+Enter the a3 coefficient: 4
+Enter the a4 coefficient: 3
+The polynomial is: 3x^4 + 4x^3 + 5x^2 + 6x + 7
+
+        Enter the value of x: 3
+The value of the first polynomial at x = 3 is: 182
+
+The value of the second polynomial at x = 3 is: 421
+
+The sum of the two polynomials is: 
+
+The polynomial is: 3x^4 + 9x^3 + 9x^2 + 9x + 9
+
+The product of the two polynomials is: 
+
+The polynomial is: 15x^7 + 32x^6 + 50x^5 + 68x^4 + 82x^3 + 56x^2 + 33x + 14
