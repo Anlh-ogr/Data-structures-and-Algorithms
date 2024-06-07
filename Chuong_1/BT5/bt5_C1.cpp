@@ -123,11 +123,11 @@ int main() {
 
 
 /* giải thích: 
-- Sử dụng struct để tạo ra một kiểu dữ liệu mới có tên là Polynomial.
-- degree lưu trữ bậc của đa thức, là một số nguyên từ 0 đến 100.
-- coefficients là một mảng lưu trữ các hệ số của đa thức.
-- Mảng này có kích thước tối đa là 101, đủ để lưu trữ đa thức bậc tối đa là 100.
-- Kiểu dữ liệu của mảng là double để lưu trữ các số thực.
+    - Sử dụng struct để tạo ra một kiểu dữ liệu mới có tên là Polynomial.
+    - degree lưu trữ bậc của đa thức, là một số nguyên từ 0 đến 100.
+    - coefficients là một mảng lưu trữ các hệ số của đa thức.
+    - Mảng này có kích thước tối đa là 101, đủ để lưu trữ đa thức bậc tối đa là 100.
+    - Kiểu dữ liệu của mảng là double để lưu trữ các số thực.
 
-thuật toán giải chi tiết ở File README.txt
+    thuật toán giải chi tiết ở File README.txt
 */
