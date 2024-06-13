@@ -42,8 +42,8 @@ void inputPolynomial(Polynomial &p) {
 
 void outputPolynomial(const Polynomial &p) {
     std::cout << "The polynomial is: ";
-    for (int i = p.degree; i >= 0; i--) {
-        if (p.coefficients[i] != 0) {
+    for (int i = p.degree; i >= 0; i--)
+        if (p.coefficients[i] != 0)
             if (i == 0)
                 std::cout <<p.coefficients[i];
             else if(i == 1)
@@ -56,39 +56,33 @@ void outputPolynomial(const Polynomial &p) {
                     std::cout << p.coefficients[i] << "x^" << i << " + ";
                 else
                     std::cout << p.coefficients[i] << "x^" << i << " ";
-        }
-    }
     std::cout << std::endl;
 }
 
 double evaluatePolynomial(const Polynomial &p, double x) {
     double result = 0;
-    for (int i = 0; i <= p.degree; i++) {
+    for (int i = 0; i <= p.degree; i++)
         result += p.coefficients[i] * std::pow(x, i);
-    }
     return result;
 }
 
 Polynomial addPolynomials(const Polynomial &p1, const Polynomial &p2) {
     Polynomial result;
     result.degree = std::max(p1.degree, p2.degree);
-    for (int i = 0; i <= result.degree; i++) {
+    for (int i = 0; i <= result.degree; i++)
         result.coefficients[i] = (i <= p1.degree ? p1.coefficients[i] : 0) + (i <= p2.degree ? p2.coefficients[i] : 0);
-    }
     return result;
 }
 
 Polynomial multiplyPolynomials(const Polynomial &p1, const Polynomial &p2) {
     Polynomial result;
     result.degree = p1.degree + p2.degree;
-    for (int i = 0; i <= result.degree; i++) {
+    for (int i = 0; i <= result.degree; i++)
         result.coefficients[i] = 0;
-    }
-    for (int i = 0; i <= p1.degree; i++) {
-        for (int j = 0; j <= p2.degree; j++) {
+    
+    for (int i = 0; i <= p1.degree; i++)
+        for (int j = 0; j <= p2.degree; j++)
             result.coefficients[i + j] += p1.coefficients[i] * p2.coefficients[j];
-        }
-    }
     return result;
 }
 
@@ -115,7 +109,6 @@ int main() {
     Polynomial product = multiplyPolynomials(p1, p2);
     std::cout << "The product of the two polynomials is: " << std::endl;
     outputPolynomial(product);
-
 
     return 0;
 }
