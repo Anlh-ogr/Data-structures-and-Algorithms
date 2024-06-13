@@ -147,6 +147,8 @@ Polynomial addPolynomials(const Polynomial &p1, const Polynomial &p2) {
     return result;
 }
 
+//
+
 int main() {
     Polynomial p1, p2;
     std::cout << "Enter the first polynomial: " << std::endl;
@@ -159,6 +161,14 @@ int main() {
 
     double x;
     std::cout << "Enter the value of x: ";
-    
+    getDouble(x);
+    std::cout << "The value of the first polynomial at x = " << x << " is: " << evaluatePolynomial(p1, x) << std::endl;
+    std::cout << "The value of the second polynomial at x = " << x << " is: " << evaluatePolynomial(p2, x) << std::endl;
+
+    Polynomial sum = addPolynomials(p1, p2);
+    std::cout << "The sum of the two polynomials is: " << std::endl;
+    outputPolynomial(sum);
+
+    return 0;
 }
 
