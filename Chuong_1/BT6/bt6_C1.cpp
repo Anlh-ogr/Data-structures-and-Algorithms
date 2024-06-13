@@ -1,58 +1,3 @@
-/*
-    Xây dựng cấu trúc dữ liệu để lưu trữ trong bộ nhớ trong(RAM) của máy
-    tính đa thức có bậc tự nhiên n (0<=n<=100) trên trường số hữu tỉ(Q)
-                fn(x) = a0/b0 + a1/b1*x + a2/b2*x^2 + ... + an/bn*x^n
-
-    Với cấu trúc dữ liệu đã xây dựng, trình bày thuật toán và thực hiện các việc sau:
-        - 1 nhập, xuất các đa thức
-        - 2 tính giá trị của đa thức tại một điểm x nào đó
-        - 3 tính tổng, tích của hai đa thức
-
-
-nhập  - n;
-	  - mảng a[i], b[i] (i = 0 -> n);
-      - x;
-
-xuất  - bậc n, giá trị của hàm số tại x, tổng đa thức, tích da thức
-
-      - giá trị của hàm số tại x
-        ví dụ: n = 4, a[i] = [1, 2, 3, 4], b[i] = [4, 3, 2, 1], x = 3
-                fn(x) = a0/b0 + a1/b1*x + a2/b2*x^2 + a3/b3*x^3
-                      = 1/4   + 2/3*3   + 3/2*3^2   + 4/1*3^3
-                      = 1/4   + 2       + 9         + 108
-                      = 120.25
-
-
-      - tổng đa thức a[i]/b[i] + c[i]/d[i]
-        ví dụ: n = 4, a[i] = [1, 2, 3, 4], b[i] = [4, 3, 2, 1], c[i] = [2, 3, 4, 5], d[i] = [3, 2, 1, 4]
-                fn(x) = a0/b0 + a1/b1*x + a2/b2*x^2 + a3/b3*x^3
-                      = 1/4   + 2/3*x   + 3/2*x^2   + 4/1*x^3
-
-                fn(x) = c0/d0 + c1/d1*x + c2/d2*x^2 + c3/d3*x^3
-                      = 2/3   + 3/2*x   + 4/1*x^2   + 5/4*x^3
-
-                fn(x) = a0/b0+c0/d0 + a1/b1*x+c1/d1*x + a2/b2*x^2+c2/d2*x^2 + a3/b3*x^3+c3/d3*x^3
-                      = 1/4  +2/3   + 2/3*x  +3/2*x   + 3/2*x^2  +4/1*x^2   + 4/1*x^3  +5/4*x^3
-                => a[i]/b[i] + c[i]/d[i] = 3/4 + 5/3*x + 5/2*x^2 + 9/4*x^3  
-
-
-      - tích đa thức a[i]/b[i] * c[i]/d[i]
-        ví dụ: n = 4, a[i] = [1, 2, 3, 4], b[i] = [4, 3, 2, 1], c[i] = [2, 3, 4, 5], d[i] = [3, 2, 1, 4]
-                fn(x) = a0/b0 + a1/b1*x + a2/b2*x^2 + a3/b3*x^3
-                      = 1/4   + 2/3*x   + 3/2*x^2   + 4/1*x^3
-
-                fn(x) = c0/d0 + c1/d1*x + c2/d2*x^2 + c3/d3*x^3
-                      = 2/3   + 3/2*x   + 4/1*x^2   + 5/4*x^3
-                
-                fn(x) = a0/b0*c0/d0 + a1/b1*c1/d1*x + a2/b2*c2/d2*x^2 + a3/b3*c3/d3*x^3
-                      = 1/4  * 2/3  + 2/3*3/2*x     + 3/2*4/1*x^2     + 4/1*5/4*x^3
-                      = 2/12        + 6/6*x         + 12/2*x^2        + 20/4*x^3
-                      = 1/6         + x             + 6*x^2           + 5*x^3
-*/
-
-
-
-
 #include <iostream>
 #include <cmath>
 
@@ -75,7 +20,6 @@ struct Polynomial {
     double coefficients1[Max_n + 1];
     double coefficients2[Max_n + 1];
 };
-
 
 // input a[i]; b[i]
 void inputPolynomial(Polynomial &p) {
@@ -114,17 +58,20 @@ void outputPolynomial(const Polynomial &p) {
     for (int i = p.degree; i >= 0; i--)
         if (p.coefficients1[i] != 0)
             if (i == 0)
-                std::cout << p.coefficients1[i] << "/" << p.coefficients2[i];
-            else if(i == 1)
-                if(p.coefficients1[i] > 0)
-                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i] << "x + ";
+                if (p.coefficients2[i] == 1)
+                    std::cout << p.coefficients1[i];
                 else
-                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i] << "x ";
+                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i];
+            else if (i == 1)
+                if (p.coefficients2[i] == 1)
+                    std::cout << p.coefficients1[i] << "x" << (p.coefficients1[i] > 0 ? " + " : " ");
+                else
+                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i] << "x" << (p.coefficients1[i] > 0 ? " + " : " ");
             else
-                if(p.coefficients1[i] > 0)
-                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i] << "x^" << i << " + ";
+                if (p.coefficients2[i] == 1)
+                    std::cout << p.coefficients1[i] << "x^" << i << (p.coefficients1[i] > 0 ? " + " : " ");
                 else
-                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i] << "x^" << i << " ";
+                    std::cout << p.coefficients1[i] << "/" << p.coefficients2[i] << "x^" << i << (p.coefficients1[i] > 0 ? " + " : " ");
     std::cout << std::endl;
 }
 
@@ -148,15 +95,6 @@ Polynomial addPolynomials(const Polynomial &p1, const Polynomial &p2) {
 }
 
 // multiply a[i]/b[i] * c[i]/d[i]
-/*
-    tích đa thức a[i]/b[i] * c[i]/d[i]
-    ví dụ: n = 4, a[i] = [1, 2, 3, 4], b[i] = [4, 3, 2, 1], c[i] = [2, 3, 4, 5], d[i] = [3, 2, 1, 4]
-            fn(x) = a0/b0 + a1/b1*x + a2/b2*x^2 + a3/b3*x^3
-                = 1/4   + 2/3*x   + 3/2*x^2   + 4/1*x^3
-
-            fn(x) = c0/d0 + c1/d1*x + c2/d2*x^2 + c3/d3*x^3
-                    = 2/3   + 3/2*x   + 4/1*x^2   + 5/4*x^3
-*/
 Polynomial multiplyPolynomials(const Polynomial &p1, const Polynomial &p2) {
     Polynomial result;
     result.degree = p1.degree + p2.degree;
@@ -173,6 +111,8 @@ Polynomial multiplyPolynomials(const Polynomial &p1, const Polynomial &p2) {
     }
     return result;
 }
+
+
 
 
 int main() {
@@ -194,7 +134,7 @@ int main() {
     Polynomial sum = addPolynomials(p1, p2);
     std::cout << "The sum of the two polynomials is: " << std::endl;
     outputPolynomial(sum);
-
+    
     Polynomial product = multiplyPolynomials(p1, p2);
     std::cout << "The product of the two polynomials is: " << std::endl;
     outputPolynomial(product);
