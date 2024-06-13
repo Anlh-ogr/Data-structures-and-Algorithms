@@ -47,3 +47,29 @@ xuất  - bậc n, giá trị của hàm số tại x, tổng đa thức, tích 
                       = 1/4  * 2/3  + 2/3*3/2*x     + 3/2*4/1*x^2     + 4/1*5/4*x^3
                       = 2/12        + 6/6*x         + 12/2*x^2        + 20/4*x^3
                       = 1/6         + x             + 6*x^2           + 5*x^3
+
+
+demo code:
+                  Enter the first polynomial: 
+Enter the degree of the polynomial: 2
+Enter the a0 coefficient: 3                     Enter the b0 coefficient: 2
+Enter the a1 coefficient: 2                     Enter the b1 coefficient: 3
+Enter the a2 coefficient: 1                     Enter the b2 coefficient: 4
+      => The polynomial is: 1/4x^2 + 2/3x + 3/2
+
+                  Enter the second polynomial: 
+Enter the degree of the polynomial: 3
+Enter the a0 coefficient: 7                     Enter the b0 coefficient: 3
+Enter the a1 coefficient: 6                     Enter the b1 coefficient: 4
+Enter the a2 coefficient: 5                     Enter the b2 coefficient: 5
+Enter the a3 coefficient: 4                     Enter the b3 coefficient: 6
+      => The polynomial is: 4/6x^3 + 5/5x^2 + 6/4x + 7/3
+
+                  Enter the value of x: 2
+The value of the first polynomial at x = 2 is: 3.83333
+
+The value of the second polynomial at x = 2 is: 14.6667
+
+The sum of the two polynomials is:        => The polynomial is: 0.666667x^3 + 1.25x^2 + 2.16667x + 3.83333
+
+The product of the two polynomials is:    => The polynomial is: 0.166667x^5 + 0.694444x^4 + 2.04167x^3 + 3.08333x^2 + 3.80556x + 3.5

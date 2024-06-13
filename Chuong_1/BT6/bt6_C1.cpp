@@ -114,7 +114,6 @@ Polynomial multiplyPolynomials(const Polynomial &p1, const Polynomial &p2) {
 
 
 
-
 int main() {
     Polynomial p1, p2;
     std::cout << "Enter the first polynomial: " << std::endl;
