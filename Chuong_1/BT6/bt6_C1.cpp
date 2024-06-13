@@ -147,7 +147,33 @@ Polynomial addPolynomials(const Polynomial &p1, const Polynomial &p2) {
     return result;
 }
 
-//
+// multiply a[i]/b[i] * c[i]/d[i]
+/*
+    tích đa thức a[i]/b[i] * c[i]/d[i]
+    ví dụ: n = 4, a[i] = [1, 2, 3, 4], b[i] = [4, 3, 2, 1], c[i] = [2, 3, 4, 5], d[i] = [3, 2, 1, 4]
+            fn(x) = a0/b0 + a1/b1*x + a2/b2*x^2 + a3/b3*x^3
+                = 1/4   + 2/3*x   + 3/2*x^2   + 4/1*x^3
+
+            fn(x) = c0/d0 + c1/d1*x + c2/d2*x^2 + c3/d3*x^3
+                    = 2/3   + 3/2*x   + 4/1*x^2   + 5/4*x^3
+*/
+Polynomial multiplyPolynomials(const Polynomial &p1, const Polynomial &p2) {
+    Polynomial result;
+    result.degree = p1.degree + p2.degree;
+    for (int i = 0; i <= result.degree; i++) {
+        result.coefficients1[i] = 0;
+        result.coefficients2[i] = 1;
+    }
+
+    for (int i = 0; i <= p1.degree; i++) {
+        for (int j = 0; j <= p2.degree; j++) {
+            result.coefficients1[i + j] += p1.coefficients1[i] / p1.coefficients2[i] * p2.coefficients1[j] / p2.coefficients2[j];
+            result.coefficients2[i + j] = 1;
+        }
+    }
+    return result;
+}
+
 
 int main() {
     Polynomial p1, p2;
@@ -168,6 +194,10 @@ int main() {
     Polynomial sum = addPolynomials(p1, p2);
     std::cout << "The sum of the two polynomials is: " << std::endl;
     outputPolynomial(sum);
+
+    Polynomial product = multiplyPolynomials(p1, p2);
+    std::cout << "The product of the two polynomials is: " << std::endl;
+    outputPolynomial(product);
 
     return 0;
 }
