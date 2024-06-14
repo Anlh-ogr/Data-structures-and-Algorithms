@@ -13,16 +13,16 @@ class TrainStation {
         TrainStation() {
             // create a schedule for the train
             schedule["S2"]={{"SAI GON","21:00"}, {"MUONG MAN","NONE"}, {"THAP CHAM","NONE"}, {"NHA TRANG","04:10"},
-                            {"TUY HOA","NONE"}, {"DIEU TRI","8:12"}, {"QUANG NGAI","NONE"}, {"TAM KI","NONE"},
+                            {"TUY HOA","NONE"}, {"DIEU TRI","08:12"}, {"QUANG NGAI","NONE"}, {"TAM KY","NONE"},
                             {"DA NANG","13:27"}, {"HUE","16:21"}, {"DONG HA","NONE"}, {"DONG HOI","19:15"},
                             {"VINH","23:21"}, {"THANH HOA","NONE"}, {"NINH BINH","NONE"}, {"NAM DINH","NONE"},
-                            {"PHU LY","NONE"}, {"HA NOI","5:00"}};
+                            {"PHU LY","NONE"}, {"HA NOI","05:00"}};
                         
-            schedule["S4"]={{"SAI GON","21:50"}, {"MUONG MAN","NONE"}, {"THAP CHAM","NONE"}, {"NHA TRANG","04:10"},
-                            {"TUY HOA","NONE"}, {"DIEU TRI","8:12"}, {"QUANG NGAI","NONE"}, {"TAM KI","NONE"},
-                            {"DA NANG","13:27"}, {"HUE","16:21"}, {"DONG HA","NONE"}, {"DONG HOI","19:15"},
-                            {"VINH","23:21"}, {"THANH HOA","NONE"}, {"NINH BINH","NONE"}, {"NAM DINH","NONE"},
-                            {"PHU LY","NONE"}, {"HA NOI","5:00"}};
+            schedule["S4"]={{"SAI GON","21:50"}, {"MUONG MAN","02:10"}, {"THAP CHAM","05:01"}, {"NHA TRANG","06:47"},
+                            {"TUY HOA","09:43"}, {"DIEU TRI","11:49"}, {"QUANG NGAI","15:41"}, {"TAM KY","NONE"},
+                            {"DA NANG","19:04"}, {"HUE","22:42"}, {"DONG HA","00:14"}, {"DONG HOI","02:27"},
+                            {"VINH","07:45"}, {"THANH HOA","10:44"}, {"NINH BINH","12:04"}, {"NAM DINH","12:37"},
+                            {"PHU LY","13:23"}, {"HA NOI","14:40"}};
 
         }
 
