@@ -23,7 +23,12 @@ class TrainStation {
                             {"DA NANG","19:04"}, {"HUE","22:42"}, {"DONG HA","00:14"}, {"DONG HOI","02:27"},
                             {"VINH","07:45"}, {"THANH HOA","10:44"}, {"NINH BINH","12:04"}, {"NAM DINH","12:37"},
                             {"PHU LY","13:23"}, {"HA NOI","14:40"}};
-
+            
+            schedule["S6"]={{"SAI GON","11:10"}, {"MUONG MAN","15:21"}, {"THAP CHAM","18:06"}, {"NHA TRANG","20:00"},
+                            {"TUY HOA","23:09"}, {"DIEU TRI","01:20"}, {"QUANG NGAI","04:55"}, {"TAM KY","06:11"},
+                            {"DA NANG","08:29"}, {"HUE","12:29"}, {"DONG HA","13:52"}, {"DONG HOI","15:52"},
+                            {"VINH","21:00"}, {"THANH HOA","00:01"}, {"NINH BINH","01:28"}, {"NAM DINH","02:01"},
+                            {"PHU LY","02:42"}, {"HA NOI","04:00"}};    
         }
 
         // add a new schedule for the train
