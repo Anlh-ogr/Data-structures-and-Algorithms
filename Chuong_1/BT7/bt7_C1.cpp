@@ -66,17 +66,17 @@ class TrainStation {
                             {"VINH","09:20"}, {"THANH HOA","12:20"}, {"NINH BINH","13:51"}, {"NAM DINH","14:25"},
                             {"PHU LY","15:06"}, {"HA NOI","16:20"}};
             
-            schedule["LH2"]={{"SAI GON","15:40"}, {"MUONG MAN","19:53"}, {"THAP CHAM","22:47"}, {"NHA TRANG","00:47"},
-                            {"TUY HOA","23:09"}, {"DIEU TRI","01:20"}, {"QUANG NGAI","04:55"}, {"TAM KY","06:11"},
-                            {"DA NANG","08:29"}, {"HUE","12:29"}, {"DONG HA","13:52"}, {"DONG HOI","15:52"},
-                            {"VINH","21:00"}, {"THANH HOA","00:01"}, {"NINH BINH","01:28"}, {"NAM DINH","02:01"},
-                            {"PHU LY","02:42"}, {"HA NOI","04:00"}};
+            schedule["LH2"]={{"SAI GON","13:20"}, {"MUONG MAN","17:35"}, {"THAP CHAM","20:19"}, {"NHA TRANG","22:46"},
+                            {"TUY HOA","02:10"}, {"DIEU TRI","04:15"}, {"QUANG NGAI","07:34"}, {"TAM KY","09:03"},
+                            {"DA NANG","10:53"}, {"HUE","15:10"}, {"DONG HA","NONE"}, {"DONG HOI","NONE"},
+                            {"VINH","NONE"}, {"THANH HOA","NONE"}, {"NINH BINH","NONE"}, {"NAM DINH","NONE"},
+                            {"PHU LY","NONE"}, {"HA NOI","NONE"}};
 
-            schedule["SN2"]={{"SAI GON","15:40"}, {"MUONG MAN","19:53"}, {"THAP CHAM","22:47"}, {"NHA TRANG","00:47"},
-                            {"TUY HOA","23:09"}, {"DIEU TRI","01:20"}, {"QUANG NGAI","04:55"}, {"TAM KY","06:11"},
-                            {"DA NANG","08:29"}, {"HUE","12:29"}, {"DONG HA","13:52"}, {"DONG HOI","15:52"},
-                            {"VINH","21:00"}, {"THANH HOA","00:01"}, {"NINH BINH","01:28"}, {"NAM DINH","02:01"},
-                            {"PHU LY","02:42"}, {"HA NOI","04:00"}};
+            schedule["SN2"]={{"SAI GON","18:40"}, {"MUONG MAN","22:58"}, {"THAP CHAM","02:15"}, {"NHA TRANG","05:15"},
+                            {"TUY HOA","NONE"}, {"DIEU TRI","NONE"}, {"QUANG NGAI","NONE"}, {"TAM KY","NONE"},
+                            {"DA NANG","NONE"}, {"HUE","NONE"}, {"DONG HA","NONE"}, {"DONG HOI","NONE"},
+                            {"VINH","NONE"}, {"THANH HOA","NONE"}, {"NINH BINH","NONE"}, {"NAM DINH","NONE"},
+                            {"PHU LY","NONE"}, {"HA NOI","NONE"}};
         }
 
         // add a new schedule for the train
