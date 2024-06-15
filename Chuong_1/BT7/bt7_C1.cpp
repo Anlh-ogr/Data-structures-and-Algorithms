@@ -54,17 +54,17 @@ class TrainStation {
                             {"VINH","02:59"}, {"THANH HOA","06:39"}, {"NINH BINH","07:57"}, {"NAM DINH","08:29"},
                             {"PHU LY","09:09"}, {"HA NOI","10:25"}};
 
-            schedule["S16"]={{"SAI GON","15:40"}, {"MUONG MAN","19:53"}, {"THAP CHAM","22:47"}, {"NHA TRANG","00:47"},
-                            {"TUY HOA","23:09"}, {"DIEU TRI","01:20"}, {"QUANG NGAI","04:55"}, {"TAM KY","06:11"},
-                            {"DA NANG","08:29"}, {"HUE","12:29"}, {"DONG HA","13:52"}, {"DONG HOI","15:52"},
-                            {"VINH","21:00"}, {"THANH HOA","00:01"}, {"NINH BINH","01:28"}, {"NAM DINH","02:01"},
-                            {"PHU LY","02:42"}, {"HA NOI","04:00"}};
+            schedule["S16"]={{"SAI GON","20:00"}, {"MUONG MAN","01:15"}, {"THAP CHAM","04:05"}, {"NHA TRANG","05:42"},
+                            {"TUY HOA","08:36"}, {"DIEU TRI","10:42"}, {"QUANG NGAI","14:35"}, {"TAM KY","16:08"},
+                            {"DA NANG","17:43"}, {"HUE","21:14"}, {"DONG HA","22:39"}, {"DONG HOI","00:52"},
+                            {"VINH","07:07"}, {"THANH HOA","09:59"}, {"NINH BINH","11:12"}, {"NAM DINH","11:44"},
+                            {"PHU LY","12:23"}, {"HA NOI","13:45"}};
 
-            schedule["S18"]={{"SAI GON","15:40"}, {"MUONG MAN","19:53"}, {"THAP CHAM","22:47"}, {"NHA TRANG","00:47"},
-                            {"TUY HOA","23:09"}, {"DIEU TRI","01:20"}, {"QUANG NGAI","04:55"}, {"TAM KY","06:11"},
-                            {"DA NANG","08:29"}, {"HUE","12:29"}, {"DONG HA","13:52"}, {"DONG HOI","15:52"},
-                            {"VINH","21:00"}, {"THANH HOA","00:01"}, {"NINH BINH","01:28"}, {"NAM DINH","02:01"},
-                            {"PHU LY","02:42"}, {"HA NOI","04:00"}};
+            schedule["S18"]={{"SAI GON","22:20"}, {"MUONG MAN","03:16"}, {"THAP CHAM","06:03"}, {"NHA TRANG","08:06"},
+                            {"TUY HOA","10:50"}, {"DIEU TRI","13:00"}, {"QUANG NGAI","17:04"}, {"TAM KY","18:21"},
+                            {"DA NANG","20:17"}, {"HUE","23:50"}, {"DONG HA","01:25"}, {"DONG HOI","03:28"},
+                            {"VINH","09:20"}, {"THANH HOA","12:20"}, {"NINH BINH","13:51"}, {"NAM DINH","14:25"},
+                            {"PHU LY","15:06"}, {"HA NOI","16:20"}};
             
             schedule["LH2"]={{"SAI GON","15:40"}, {"MUONG MAN","19:53"}, {"THAP CHAM","22:47"}, {"NHA TRANG","00:47"},
                             {"TUY HOA","23:09"}, {"DIEU TRI","01:20"}, {"QUANG NGAI","04:55"}, {"TAM KY","06:11"},
