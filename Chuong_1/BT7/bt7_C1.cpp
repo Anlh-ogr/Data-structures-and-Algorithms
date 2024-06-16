@@ -1,17 +1,28 @@
 #include <iostream>
 #include <map>          // save the schedule of the train
 #include <string>
+#include <vector>       // save the train number
+#include <algorithm>    // find the train number in the vector
 
+
+// the train station
 class TrainStation {
     // create a schedule for the train with the train number, time, and station
     private:
+        /**
+         * @note: the schedule of the train is saved in the map
+         */
         // <train_number, <time, station>>
         std::map<std::string, std::map<std::string, std::string>> schedule; 
 
+
+
     // create a data schedule for the train
     public:
+        /**
+         * @note: the schedule of the train
+         */
         TrainStation() {
-            // create a schedule for the train
             schedule["S2"]={{"SAI GON","21:00"}, {"MUONG MAN","NONE"}, {"THAP CHAM","NONE"}, {"NHA TRANG","04:10"},
                             {"TUY HOA","NONE"}, {"DIEU TRI","08:12"}, {"QUANG NGAI","NONE"}, {"TAM KY","NONE"},
                             {"DA NANG","13:27"}, {"HUE","16:21"}, {"DONG HA","NONE"}, {"DONG HOI","19:15"},
@@ -79,39 +90,55 @@ class TrainStation {
                             {"PHU LY","NONE"}, {"HA NOI","NONE"}};
         }
 
-        // add a new schedule for the train
-        void addSchedule(std::string train_number, std::string time, std::string station) {
-            schedule[train_number][time] = station;
+        // xuất ra thời gian của 1 tàu tại 1 ga nào đó
+        /**
+         * @param train_number: số hiệu tàu
+         * @param station: ga cần tìm
+         * @return: thời gian tàu đến ga đó
+         * @note: nếu tàu không dừng ở ga đó thì xuất ra thông báo
+         * @note: nếu tàu không tồn tại thì xuất ra thông báo
+         * @note: nếu ga không tồn tại thì xuất ra thông báo 
+         */
+        void get_time_at_station(std::string train_number, std::string station) {
+            std::map<std::string, std::string> train_schedule = schedule[train_number];
+            std::map<std::string, std::string>::iterator it = train_schedule.find(station);
+            if (it != train_schedule.end())
+                std::cout << "The train " << train_number << " will arrive at " << station << " at " << it->second << std::endl;
+            else
+                std::cout << "The train " << train_number << " does not stop at " << station << std::endl;
         }
 
-        // remove a schedule for the train
-        void removeSchedule(std::string train_number, std::string time) {
-            schedule[train_number].erase(time);
-        }
-
-        // // show the schedule of the train
-        // void showSchedule(std::string train_number) {
-        //     std::cout << "Train number: " << train_number << std::endl;
-        //     for (auto it = schedule[train_number].begin(); it != schedule[train_number].end(); it++) {
-        //         std::cout << "Time: " << it->first << " - Station: " << it->second << std::endl;
-        //     }
-        // }
-
-        // // show the schedule of all the train
-        // void showAllSchedule() {
-        //     for (auto it = schedule.begin(); it != schedule.end(); it++) {
-        //         std::cout << "Train number: " << it->first << std::endl;
-        //         for (auto it2 = it->second.begin(); it2 != it->second.end(); it2++) {
-        //             std::cout << "Time: " << it2->first << " - Station: " << it2->second << std::endl;
-        //         }
-        //     }
-        // }
-
-
-        // get arrival time of the train
-        std::string getArrivalTime(const std::string& train, const std::string&station) {
-            if(schedule.find(train))
-                printf("Train number %s is not found\n", train.c_str());
+        // xuất ra giờ đến các ga của 1 tàu nào đó
+        /**
+         * @param train_number: số hiệu tàu
+         * @note: nếu tàu không tồn tại thì xuất ra thông báo
+         */
+        void get_schedule(std::string train_number) {
+            std::map<std::string, std::string> train_schedule = schedule[train_number];
+            std::cout << "The schedule of the train " << train_number << " is: " << std::endl;
+            for (std::map<std::string, std::string>::iterator it = train_schedule.begin(); it != train_schedule.end(); it++)
+                std::cout << it->first << ": " << it->second << std::endl;
         }
 };
+
+
+int main() {
+    TrainStation train_station;
+    
+    std::string in_train_number;   std::string in_station;
+    std::cout << "Enter the train number: "; std::cin >> in_train_number;
+    
+    // nhap dau cach
+    std::cout << "Enter the station: "; std::cin.ignore();
+    std::getline(std::cin, in_station);
+    
+
+
+    // test get_time_at_station
+    train_station.get_time_at_station(in_train_number, in_station);
+
+    // test get_schedule
+    train_station.get_schedule(in_train_number);
+
+    return 0;
 }
