@@ -119,6 +119,33 @@ class TrainStation {
             for (std::map<std::string, std::string>::iterator it = train_schedule.begin(); it != train_schedule.end(); it++)
                 std::cout << it->first << ": " << it->second << std::endl;
         }
+
+
+        // xuất ra giờ các tàu đến 1 ga nào đó
+        /**
+         * @param station: ga cần tìm
+         * @note: nếu ga không tồn tại thì xuất ra thông báo
+         */
+        void get_time_of_train_toStation(std::string station) {
+            std::cout << "The train will arrive at " << station << " at: " << std::endl;
+            for (std::map<std::string, std::map<std::string, std::string>>::iterator it = schedule.begin(); it != schedule.end(); it++) {
+                std::map<std::string, std::string> train_schedule = it->second;
+                std::map<std::string, std::string>::iterator it2 = train_schedule.find(station);
+                if (it2 != train_schedule.end())
+                    std::cout << it->first << ": " << it2->second << std::endl;
+            }
+        }
+
+        // xuất ra bảng giờ tàu
+        void get_all_schedule() {
+            std::cout << "The schedule of the train is: " << std::endl;
+            for (std::map<std::string, std::map<std::string, std::string>>::iterator it = schedule.begin(); it != schedule.end(); it++) {
+                std::cout << "The schedule of the train " << it->first << " is: " << std::endl;
+                for (std::map<std::string, std::string>::iterator it2 = it->second.begin(); it2 != it->second.end(); it2++)
+                    std::cout << it2->first << ": " << it2->second << std::endl;
+            }
+        }
+
 };
 
 
@@ -131,7 +158,7 @@ int main() {
     // nhap dau cach
     std::cout << "Enter the station: "; std::cin.ignore();
     std::getline(std::cin, in_station);
-    
+
 
 
     // test get_time_at_station
@@ -139,6 +166,13 @@ int main() {
 
     // test get_schedule
     train_station.get_schedule(in_train_number);
+
+    // test get_time_of_train_toStation
+    train_station.get_time_of_train_toStation(in_station);
+
+    // test get_all_schedule
+    train_station.get_all_schedule();
+
 
     return 0;
 }
