@@ -149,6 +149,10 @@ class TrainStation {
 };
 
 
+// bai 8
+/* ghi nhan them thong tin ve doan tau khi dung tai cac ga chi de tranh tau hay de cho hanh khach len/xuong */
+
+
 int main() {
     TrainStation train_station;
     
@@ -173,6 +177,9 @@ int main() {
     // test get_all_schedule
     train_station.get_all_schedule();
 
+
+    // bai 8
+/* ghi nhan them thong tin ve doan tau khi dung tai cac ga chi de tranh tau hay de cho hanh khach len/xuong */
 
     return 0;
 }
