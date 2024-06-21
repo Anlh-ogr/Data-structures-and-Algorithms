@@ -16,6 +16,7 @@ int main() {
     std::vector<int> array_M;
     int element;
     int value_x;
+    
     std::cout << "Enter value x: ";
     std::cin >> value_x;
 
