@@ -3,7 +3,7 @@
 
 
 void linearSearch(int *ptr, size_t size, int x) {
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; ++i) {
         if (ptr[i] == x) {
             std::cout << "Element " << x << " is found at index " << i << std::endl;
             return;
