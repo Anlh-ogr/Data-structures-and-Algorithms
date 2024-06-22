@@ -47,3 +47,85 @@
     Bkt: kết thúc
 
 ##### Cài đặt thuật toán đệ quy:
+
+* hàm binarySearch có prototype:
+  * int BinarySearch (T M[.], int n, T, X);
+* hàm thực hiện việc tìm kiếm phần tử có giá trị X trong mảng M có n phần tử đã có thứ tự tăng. Nếu tìm thấym hàm trả về một số nguyên có giá trị từ 0 đến n-1 là vị trí tương ướng của phần tử tìm thấy.
+* ngược lại, hàm trả về giá trị -1(not found).
+* hàm binarySearch sử dụng hàm đệ quy RecBinarySearch có prototype:
+  * int RecBinarySearch(T M[.], int First, int Last, T, X);
+* hàm RecBinarySearch thực hiện việc tìm kiếm phần tử có giá trị X trên mảng M trong phạm vi phần tử thứ First đến Last là vị trí tương ứng của phần tử tìm thấy .
+* trong trường hợp ngược lại, hàm trả về giá trị -1(not found).
+* nội dung các hàm như sau:
+  * int RecBinarySearch(T M[.], int First, int Last, T, X)
+  * {
+    * if(First > Last)
+
+      * return (-1);
+    * int mid = (First + Last)/2;
+    * if(X == M[mid])
+
+      * return (mid);
+    * if(X < M[mid])
+
+      * return (RecBinarySearch(M, First, mid - 1, X));
+    * else
+
+      * return (RecBinarySearch(M, mid + 1, Last,  X));
+  * }
+  * ===================================
+  * int BinarySearch(T M[.], int n, T, X)
+  * {
+    * return (RecBinarySearch(M, 0, n - 1, X));
+  * }
+
+##### Phân tích thuật toán đệ quy:
+
+* trường hợp tốt nhất khi phần tử ở giữa của mảng có giá trị bằng X:
+
+  * số phép gán: Gmin = 1
+  * số phép so sánh: Smin = 2
+* trường hợp xấu nhất khi không tìm thấy phần tử nào có giá trị bằng X:
+
+  * số phép gán: Gmax = log2N + 1
+  * số phép so sánh: Smax = 3log2N + 1
+* trung bình:
+
+  * số phép gán: Gavg = 1/2log2N + 1
+  * số phép so sánh: Smax = 1/2(3log2N + 3)
+
+##### Thuật toán không đệ quy(Non-Recursion Algorithm)
+
+    b1: First = 1
+
+    b2: Last = n
+
+    b3: if(First > Last)
+
+    b3.1: không tìm thấy
+
+    b3.2: thực hiện Bkt
+
+    b4: mid = (First + Last)/2
+
+    b5: if(X = M[mid])
+
+    b5.1: tìm thấy tại vị trí mid
+
+    b5.2: thực hiện Bkt
+
+    b6: if(X < M[mid])
+
+    b6.1: Last = mid - 1
+
+    b6.2: lặp lại b3
+
+    b7: if(X > M[mid])
+
+    b7.1: First = mid + 1
+
+    b7.2: lặp lại b3
+
+    Bkt: kết thúc
+
+##### Cài đặt thuật toán không đệ quy:
