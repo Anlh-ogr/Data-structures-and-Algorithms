@@ -82,9 +82,55 @@ Mỗi phần tử dữ liệu trong tập tin chỉ mục IDX gồm có 2 thành
 
     } IdxType;
 
-Tậptin chỉ mục luôn luôn được sắp xếp theo thứ tự tăng của khóa chỉ mục. Việc tạo tập tin chỉ mục IDX sẽ được nghiên cứu ở Chap3, phần này, xem như ta đã có tập tin chỉ mục IDX để thao tác.
+Tập tin chỉ mục luôn luôn được sắp xếp theo thứ tự tăng của khóa chỉ mục. Việc tạo tập tin chỉ mục IDX sẽ được nghiên cứu ở Chap3, phần này, xem như ta đã có tập tin chỉ mục IDX để thao tác.
 
 * **Tư tưởng:**
   * Lần lượt đọc các phần tử từ đầu tập tin IDX và so sánh thành phần khóa chỉ mục với giá trị X cho đến khi đọc được phần tử có giá trị khóa chỉ mục lớn hơn hoặc bằng X hoặc đã đọc hết tập tin IDX thì kết thúc.
   * Nếu tìm thấy thì ta đã có vị trí vật lý của phần tử dữ liệu trên tập tin dữ liệu F, khi đó chúng ta có thể truy cập trực tiếp đến vị trí này để đọc dữ liệu của phần tử tìm thấy.
 * **Thuật toán:**
+  * b1: rewind(IDX)
+  * b2: read(IDX, ai)
+  * b3: if(ai.IdxKey < X && !(eof(IDX)))
+    * lặp lại b2
+  * b4: if(ai.IdxKey = X)
+    * tìm thấy tại vị trí ai.Pos byte(s) tính từ đầu tập tin
+  * b5: else
+    * không tìm thấy phần tử có giá trị X
+  * b6: kết thúc. return 0
+* **Cài đặt thuật toán:**
+  * hàm IndexSearch có prototype: long IndexSearch(char *IdxFileName, T X);
+  * hàm thực hiện tìm kiếm phần tử có giá trị X dựa trên tập tin chỉ mục có tên IdxFileName. Nếu tìm thấy, hàm trả về một số nguyên có giá trị từ 0 đến filelength(FileName)-1 là vị trí tương ứng của phần tử tìm thấy so với đầu tập tin dữ liệu(tính bằng byte).
+  * trong trường hợp ngược lại, hoặc có lỗi khi thao tác trên tập tin chỉ mục hàm trả về giá trị -1(not found). Nội dung của hàm như sau:
+    * long IndexSearch(char *IdxFileName, T, X)
+    * {
+      * FFILE *IDXFp;
+      * IDXFp = fopen(IdxFileName, "rb");
+      * if(IDXFp == NULL)
+        * return(-1);
+      * IdxType ai;
+      * int SOIE = sizeof(IdxType);
+      * while(!feof(IDXFp))
+      * {
+        * if(fread(&ai, SOIE, 1, IDXFp) == 0)
+          * break;
+        * if(ai.IdxKey >= X)
+          * break;
+      * }
+      * fclose(IDXFp);
+      * if(ai.IdxKey == X)
+        * return(ai.Pos);
+      * return(-1);
+    * }
+* **Phân tích thuật toán:**
+  * trường hợp tốt nhất khi phần tử đầu tiên của tập tin chỉ mục có giá trị khóa chỉ mục lớn hơn hoặc = X:
+    * số phép gán:  Gmin = 1
+    * số phép so sánh: Smin = 2 + 1 = 3
+    * số lần đọc tập tin: Dmin = 1
+  * trường hợp xấu nhất khi mọi phần tử trong tập tin chỉ mục đều có khóa chỉ mục nhỏ hơn giá trị X:
+    * số phép gán:  Gmax = 1
+    * số phép so sánh: Smax = 2n + 1
+    * số lần đọc tập tin: Dmax = n
+  * trung bình:
+    * số phép gán:  Gavg = 1
+    * số phép so sánh: Savg = (3 + 2n + 1) : 2 = n + 2
+    * số lần đọc tập tin: Davg = 1/2(n + 1)
