@@ -129,3 +129,67 @@
     Bkt: kết thúc
 
 ##### Cài đặt thuật toán không đệ quy:
+
+* hàm NRecBinarySearch có prototype: int NRecBinarySearch (T M[.], int n, T, X);
+* hàm thực hiện việc tìm kiếm phần tử có giá trị X trong mảng M có n phàn tử đã có thứ tự tăng. Nếu tìm thấy, hàm trả về một số nguyên có giá trị từ 0 đến n-1 là vị trí tương ứng của phần tử tìm thấy. Trong trường hợp ngược lại, hàm trở về giá trị -1(not found). Nội dung của hàm NRecBinarySearch như sau:
+  * int NRecBinarySearch(T M[.], int n, T, X)
+  * {
+    * int First = 0;
+    * int Last = n - 1;
+    * while (First <= Last)
+    * {
+      * int Mid = (First + Last)/2;
+      * if(X == M[mid])
+        * return(mid);
+      * if(X < M[mid])
+        * Last = mid - 1;
+      * else
+        * First = mid + 1;
+    * }
+    * return(-1);
+  * }
+
+##### Phân tích thuật toán không đệ quy:
+
+* trường hợp tốt nhất khi phần tử ở giữa của mảng có giá trị bằng X:
+  * số phép gán: Gmin = 3
+  * số phép so sánh: Smin = 2
+* trường hợp xấu nhất khi không tìm thấy phần tử nào có giá trị bằng X:
+  * số phép gán: Gmax = 2log2N + 4
+  * số phép so sánh: Smax = 3log2N + 1
+* trung bình:
+  * số phép gán: Gavg = log2N + 3.5
+  * số phép so sánh: Smax = 1/2(3log2N + 3)
+
+##### Ví dụ:
+
+giả sử có dãy M gồm 10 phần tử có khóa như sau (n = 10)
+
+* M[10] = {1, 3, 4, 5, 8, 15, 17, 22, 25, 30}
+
+trước tiên ta thực hiện tìm kiếm phần tử có giá trị X = 5(tìm thấy):
+
+| lần lặp | First | Last | First > Last | Mid | M[mid] | X = M[mid] | X < M[mid] | X > M[mid] |
+| :-------: | :---: | :--: | :----------: | :-: | :----: | :--------: | :--------: | :--------: |
+| ban đầu |   0   |  9  |    false    |  4  |   8   |   false   |    true    |   false   |
+|     1     |   0   |  3  |    false    |  1  |   3   |   false   |   false   |    true    |
+|     2     |   2   |  3  |    false    |  2  |   4   |   false   |   false   |    true    |
+|     3     |   3   |  3  |    false    |  3  |   5   |    true    |            |            |
+
+kết quả sau 3 lần lặp(đệ quy) thuật toán kết thúc.
+
+thực hiện tìm kiếm phần tử có giá trị X = 7(not found)
+
+| Lần lặp | First | Last | First > Last | Mid | M[mid] | X = M[mid] | X < M[mid] | X > M[mid] |
+| :-------: | :---: | :--: | :----------: | :-: | :----: | :--------: | :--------: | :--------: |
+| ban đầu |   0   |  9  |    false    |  4  |   8   |   false   |    true    |   false   |
+|     1     |   0   |  3  |    false    |  1  |   3   |   false   |   false   |    true    |
+|     2     |   2   |  3  |    false    |  2  |   4   |   false   |   false   |    true    |
+|     3     |   3   |  3  |    false    |  3  |   5   |   false   |   false   |    true    |
+|     4     |   4   |  3  |     true     |    |        |            |            |            |
+
+kết quả sau 4 lần lặp(đệ quy) thuật toán kết thúc.
+
+* lưu ý:
+  * thuật toán tìm nhị phân chỉ có thể vận dụng trong trường hợp dãy/mảng đã có thứ tự. Trong trường hợp tổng quát chúng ta chỉ có thể áp dụng thuật toán tìm kiếm tuần tự(Sequential Search).
+  * các thuật toán đệ quy có thể ngắn gọn song tốn kém bộ nhớ để ghi nhận mã lệnh chương trình(mỗi lần gọi đệ quy) khi chạy chương trình, do vậy có thể làm cho chương trình chạy chậm lại. Trong thực tế, khi viết chương trình nếu có thể ta nên sử dụng thuật toán không đệ quy.
