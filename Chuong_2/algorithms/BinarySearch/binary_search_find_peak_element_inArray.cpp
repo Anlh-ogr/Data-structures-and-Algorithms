@@ -5,6 +5,8 @@ int findPeakElement(int arr[], int size) {
 
     while(left < right) {
         int mid = left + (right - left) / 2;
+
+        // mid < phần tử tiếp theo? peak element ở bên phải : peak element ở bên trái hoặc chính mid
         if(arr[mid] < arr[mid + 1])
             left = mid + 1;
         else
