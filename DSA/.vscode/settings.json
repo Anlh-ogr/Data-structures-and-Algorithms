@@ -1,2 +1,6 @@
 {
+    "files.associations": {
+        "*.md": "markdown",
+        "random": "cpp"
+    }
 }
