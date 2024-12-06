@@ -1,5 +1,4 @@
-DSA
-
+### DSA
 * Hiểu rõ cách cài đặt cũng những cách hoạt động của các hàm trong các cấu trúc dữ liệu:
   * Cấu trúc dữ liệu mảng.
   * Cấu trúc dữ liệu ngăn xếp.
