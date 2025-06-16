@@ -1,0 +1,68 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:\\MinGW\\bin\\g++.exe", // Thay bằng đường dẫn phù hợp với MinGW trên hệ thống của bạn
+            "args": [
+                "-O0",  // Tùy chọn tối ưu hóa cơ bản, giúp tăng tốc build
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"  // Đặt thư mục làm việc là thư mục chứa tệp mã nguồn
+            },
+            "problemMatcher": [
+                "$gcc"  // Sử dụng để phát hiện và hiển thị lỗi
+            ],
+            "group": {
+                "kind": "build",  // Đặt nhóm là 'build'
+                "isDefault": true  // Đặt task này làm mặc định
+            },
+            "detail": "Task optimized for faster build."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build active file with object file",
+            "command": "C:\\MinGW\\bin\\g++.exe",
+            "args": [
+                "-c",  // Chỉ biên dịch file nguồn thành object file
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.o"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "Task to build object file."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: Link object file",
+            "command": "C:\\MinGW\\bin\\g++.exe",
+            "args": [
+                "${fileDirname}\\${fileBasenameNoExtension}.o",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build"
+            },
+            "detail": "Task to link object file to executable."
+        }
+    ],
+    "version": "2.0.0"
+}
