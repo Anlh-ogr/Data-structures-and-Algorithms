@@ -11,11 +11,10 @@
    - Use a programming language to implement the solution.
 
 ## Flowchart
-![alt text](flowchart.png)
+   ![Flowchart](flowchart.png)
 
 ## Pseudocode
 1. Input side_a.
 2. Area = side_a * side_a.
 3. Print area.
 4. End.
-
