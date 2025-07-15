@@ -23,7 +23,7 @@ In terminal (compile - execution)
     g++ file.cpp && ./a.out
     ```
 
-- In Windows
+- In Windows (cmd)
     ```bash
     g++ -o file file.cpp
     file.exe
@@ -31,6 +31,16 @@ In terminal (compile - execution)
     or
     ```bash
     g++ -o file file.cpp && file.exe
+    ```
+
+- In Windows (PowerShell)
+    ```bash
+    g++ -o file file.cpp
+    file.exe
+    ```
+    or
+    ```bash
+    g++ -o file file.cpp; if ($?) { file.exe }
     ```
 
 ## Data Types
