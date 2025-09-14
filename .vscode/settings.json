@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.h": "cpp",
         "ostream": "cpp",
         "array": "cpp",
         "atomic": "cpp",
@@ -58,5 +59,11 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\g++.exe",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "C:\\mingw64\\include"    
+    ],
+    "C_Cpp.default.cppStandard": "c++20"
 }
